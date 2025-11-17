@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { MagicWandIcon } from './icons/MagicWandIcon';
 import { LoadingSpinner } from './icons/LoadingSpinner';
@@ -10,11 +9,13 @@ interface PromptFormProps {
   isLoading: boolean;
   tone: string;
   setTone: (tone: string) => void;
+  numScenes: number;
+  setNumScenes: (num: number) => void;
 }
 
 const storyTones = ['مغامرة', 'مضحكة', 'غامضة', 'درامية', 'شاعرية', 'تاريخي', 'خيال علمي', 'رعب', 'رومانسي'];
 
-const PromptForm: React.FC<PromptFormProps> = ({ prompt, setPrompt, onSubmit, isLoading, tone, setTone }) => {
+const PromptForm: React.FC<PromptFormProps> = ({ prompt, setPrompt, onSubmit, isLoading, tone, setTone, numScenes, setNumScenes }) => {
   return (
     <form onSubmit={onSubmit} className="w-full space-y-6">
       <div>
@@ -56,6 +57,23 @@ const PromptForm: React.FC<PromptFormProps> = ({ prompt, setPrompt, onSubmit, is
           ))}
         </div>
       </div>
+
+      <div>
+        <label htmlFor="numScenes" className="block text-center text-lg font-medium text-gray-300 mb-3">
+          اختر عدد المشاهد: <span className="font-bold text-purple-400">{numScenes}</span>
+        </label>
+        <input
+          id="numScenes"
+          type="range"
+          min="2"
+          max="15"
+          value={numScenes}
+          onChange={(e) => setNumScenes(Number(e.target.value))}
+          disabled={isLoading}
+          className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500 disabled:opacity-50"
+        />
+      </div>
+
 
       <button
         type="submit"

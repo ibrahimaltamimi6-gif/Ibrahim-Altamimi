@@ -13,7 +13,17 @@ function AppContent() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [tone, setTone] = useState<string>('مغامرة'); // Default tone
+  const [numScenes, setNumScenes] = useState<number>(3); // Default number of scenes
   const navigate = useNavigate();
+
+  const handleApiKeySelect = async () => {
+    try {
+      await (window as any).aistudio.openSelectKey();
+    } catch (e) {
+      console.error("Failed to open API key selection:", e);
+      setError("فشل فتح نافذة اختيار المفتاح.");
+    }
+  };
 
   const handleSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -25,18 +35,28 @@ function AppContent() {
     navigate('/story'); // Navigate immediately to show loading spinner on the story page
 
     try {
-      const result = await generateStory(prompt, tone);
+      // Ensure API key is selected before generating content
+      const hasApiKey = await (window as any).aistudio.hasSelectedApiKey();
+      if (!hasApiKey) {
+        await handleApiKeySelect();
+      }
+
+      const result = await generateStory(prompt, tone, numScenes);
       setStory(result);
     } catch (err: any) {
       setError(err.message || 'حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.');
+      // If the error indicates an invalid key, prompt the user to select a new one.
+      if (err.message && err.message.includes("صالح")) {
+          handleApiKeySelect();
+      }
     } finally {
       setIsLoading(false);
     }
-  }, [prompt, isLoading, tone, navigate]);
+  }, [prompt, isLoading, tone, numScenes, navigate]);
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-900 font-sans">
-      <Header />
+      <Header onApiKeyClick={handleApiKeySelect} />
       <main className="flex-grow container mx-auto p-4 md:p-8 flex flex-col items-center justify-center">
         <Routes>
           <Route
@@ -50,6 +70,8 @@ function AppContent() {
                   isLoading={isLoading}
                   tone={tone}
                   setTone={setTone}
+                  numScenes={numScenes}
+                  setNumScenes={setNumScenes}
                 />
               </div>
             }
@@ -62,6 +84,7 @@ function AppContent() {
                   story={story}
                   isLoading={isLoading}
                   error={error}
+                  onSelectApiKey={handleApiKeySelect}
                 />
               </div>
             }
