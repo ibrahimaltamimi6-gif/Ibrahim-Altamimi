@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ERP — النظام الشامل لإدارة الأعمال</title>
+    <meta name="description" content="ERP عربي متكامل: محاسبة، مبيعات، مشتريات، مخزون، تقارير وتكاملات مؤسسية." />
+    <style>
+      :root{--bg:#0f172a;--card:#0b1220;--accent:#06b6d4;--muted:#94a3b8;--text:#e6eef8}
+      *{box-sizing:border-box}
+      body{margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;direction:rtl;background:linear-gradient(180deg,#071029 0%,var(--bg) 100%);color:var(--text);-webkit-font-smoothing:antialiased}
+      .container{max-width:1100px;margin:40px auto;padding:24px}
+      header{display:flex;justify-content:space-between;align-items:center}
+      .logo{display:flex;align-items:center;gap:12px}
+      .logo .mark{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700}
+      .nav a{color:var(--muted);text-decoration:none;margin-left:18px}
+      .hero{display:grid;grid-template-columns:1fr;gap:20px;margin-top:36px}
+      .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:32px;border-radius:12px}
+      h1{margin:0;font-size:32px}
+      p.lead{color:var(--muted);margin-top:12px;font-size:16px}
+      .cta{margin-top:20px;display:flex;gap:12px}
+      .btn{background:var(--accent);color:#022;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:600}
+      .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text)}
+      .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:24px}
+      .feature{background:var(--card);padding:18px;border-radius:10px}
+      .feature h3{margin:0;font-size:18px}
+      .feature p{margin:8px 0 0;color:var(--muted);font-size:14px}
+      footer{margin-top:40px;color:var(--muted);font-size:14px;display:flex;justify-content:space-between;align-items:center}
+      .pill{background:rgba(255,255,255,0.02);padding:6px 10px;border-radius:999px;color:var(--muted);font-size:13px}
+      @media(min-width:800px){.hero{grid-template-columns:1fr 420px}}
+      .card-contact{background:linear-gradient(180deg, rgba(6,182,212,0.06), rgba(124,58,237,0.04));padding:20px;border-radius:12px}
+      input, textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text);margin-top:8px}
+      label{font-size:13px;color:var(--muted)}
+      .small{font-size:13px;color:var(--muted);margin-top:8px}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">
+          <div class="mark">ERP</div>
+          <div>
+            <div style="font-weight:700">ERP — النظام الشامل</div>
+            <div style="font-size:13px;color:var(--muted)">نظام متكامل لإدارة الشركات باللغة العربية</div>
+          </div>
+        </div>
+        <nav class="nav">
+          <a href="#features">الميزات</a>
+          <a href="#contact">تواصل</a>
+          <a href="https://github.com/ibrahimaltamimi6-gif/Ibrahim-Altamimi" target="_blank">GitHub</a>
+        </nav>
+      </header>
+
+      <main class="hero">
+        <section class="hero-card">
+          <h1>ERP عربي قوي، قابل للتخصيص، وجاهز للمؤسسات</h1>
+          <p class="lead">نظام محاسبي وتجاري ومخازن متكامل مع تقارير متقدمة وتكاملات مع أنظمة SAP, Oracle, Microsoft وOdoo. مناسب للشركات التي تحتاج حلًّا قابلاً للتوسعة ويدعم اللغة العربية بالكامل.</p>
+          <div class="cta">
+            <a class="btn" href="mailto:contact@yourdomain.com?subject=طلب%20عرض%20ERP">اطلب عرضًا</a>
+            <a class="btn secondary" href="#features">اطّلع على المميزات</a>
+          </div>
+
+          <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
+            <div class="pill">دعم RTL وعربي</div>
+            <div class="pill">Open/API-first</div>
+            <div class="pill">نشر SaaS أو On‑Prem</div>
+          </div>
+        </section>
+
+        <aside class="card-contact" id="contact">
+          <h2 style="margin:0">اطلب معلومات أو عرض تجريبي</h2>
+          <p class="small">أرسل لنا رسالة وسنعود لك خلال 24 ساعة.</p>
+          <form action="mailto:contact@yourdomain.com" method="post" enctype="text/plain">
+            <label for="name">الاسم</label>
+            <input id="name" name="الاسم" placeholder="اسمك" required>
+            <label for="email">البريد الإلكتروني</label>
+            <input id="email" name="البريد" type="email" placeholder="name@example.com" required>
+            <label for="message">الرسالة</label>
+            <textarea id="message" name="الرسالة" rows="4" placeholder="أخبرنا بما تحتاج"></textarea>
+            <div style="margin-top:12px;display:flex;gap:8px">
+              <button type="submit" class="btn">أرسل</button>
+              <a href="mailto:contact@yourdomain.com" class="btn secondary">أرسل عبر البريد</a>
+            </div>
+          </form>
+        </aside>
+      </main>
+
+      <section style="margin-top:28px" id="features">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <h2 style="margin:0">مميزات رئيسية</h2>
+          <div class="small">مبني للأعمال العربية والمؤسسات</div>
+        </div>
+        <div class="features">
+          <div class="feature">
+            <h3>محاسبة متقدمة</h3>
+            <p>دفاتر، قيود يومية، تقارير ربح وخسارة وميزانية. دعم عملات وضرائب محلية.</p>
+          </div>
+          <div class="feature">
+            <h3>مبيعات ومشتريات</h3>
+            <p>إدارة عملاء وموردين، عروض أسعار، أوامر، وفواتير قابلة للطباعة.</p>
+          </div>
+          <div class="feature">
+            <h3>إدارة المخزون</h3>
+            <p>متعدد المواقع، أرقام دفعات، تسوية مخزون وتقارير حركة البضاعة.</p>
+          </div>
+          <div class="feature">
+            <h3>تقارير ولوحات تحكم</h3>
+            <p>لوحات KPI قابلة للتخصيص وتصدير PDF/XLSX.</p>
+          </div>
+          <div class="feature">
+            <h3>تكاملات</h3>
+            <p>Connectors مع SAP, Oracle, Microsoft, Odoo, Zoho وواجهات API حديثة.</p>
+          </div>
+          <div class="feature">
+            <h3>قابلية التوسعة</h3>
+            <p>نظام إضافات (plugins) وwebhooks وAPI جاهز للمطورين.</p>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div>© {new Date().getFullYear()} ERP — كل الحقوق محفوظة</div>
+        <div>
+          <a href="https://github.com/ibrahimaltamimi6-gif/Ibrahim-Altamimi" target="_blank" style="color:var(--muted);text-decoration:none">المستودع على GitHub</a>
+        </div>
+      </footer>
+    </div>
+    <script>
+      // بطّهة خفيفة: استبدال التاريخ في الفوتر
+      try{document.querySelector('footer div').textContent = '© ' + new Date().getFullYear() + ' ERP — كل الحقوق محفوظة'}catch(e){}
+    </script>
+  </body>
+</html>
